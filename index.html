@@ -103,13 +103,14 @@
       <li><a href="#vision" onclick="closeMenu()">Vision</a></li>
       <li><a href="#press" onclick="closeMenu()">Press</a></li>
       <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+      <li class="nav-join-li"><button class="nav-join-btn" onclick="closeMenu(); openJoinModal();">Join MBN — Free</button></li>
     </ul>
 
     <div class="nav-cta-wrap" style="display:flex; align-items:center; gap: var(--space-3);">
       <button data-theme-toggle class="theme-toggle" aria-label="Switch to dark mode" title="Toggle dark mode">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="https://www.eventbrite.com/o/marianas-business-network-90285645273" target="_blank" rel="noopener noreferrer" class="nav-cta">Upcoming Events</a>
+      <button class="nav-cta" onclick="openJoinModal()">Join MBN</button>
     </div>
 
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
@@ -134,8 +135,8 @@
     <h1 class="hero-headline" id="hero-heading">Driving Economic Excellence Across the Marianas</h1>
     <p class="hero-sub">The Marianas Business Network is a grassroots nonprofit unifying small businesses, entrepreneurs, and community leaders across the CNMI, Guam, and the Western Pacific.</p>
     <div class="hero-actions">
-      <a href="#impact" class="btn btn-primary">Our Impact</a>
-      <a href="#events" class="btn btn-outline">Upcoming Events</a>
+      <button class="btn btn-primary" onclick="openJoinModal()">Join MBN — It's Free</button>
+      <a href="#impact" class="btn btn-outline">Our Impact</a>
     </div>
   </div>
 </section>
@@ -699,6 +700,136 @@
   </div>
 </section>
 
+<!-- ======================================================
+     JOIN MBN MODAL
+     ====================================================== -->
+<div class="join-modal-overlay" id="joinModal" role="dialog" aria-modal="true" aria-labelledby="join-modal-title" hidden>
+  <div class="join-modal">
+    <button class="join-modal-close" onclick="closeJoinModal()" aria-label="Close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+
+    <div class="join-modal-body">
+      <!-- Left: Benefits -->
+      <div class="join-benefits">
+        <div class="join-benefits-eyebrow">100% Free Membership</div>
+        <h2 class="join-benefits-heading" id="join-modal-title">Join the Marianas Business Network</h2>
+        <p class="join-benefits-desc">Unlike other business organization groups, MBN doesn't charge a membership fee. Sign up and start receiving benefits today.</p>
+
+        <ul class="join-perks-list" role="list">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Free access to all MBN events, workshops, and seminars</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Priority vendor registration for the Marianas Business Showcase</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Networking with business owners and government leaders</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Business spotlight features on MBN social channels</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Direct access to government dialogues and policy discussions</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Community support from fellow entrepreneurs across the CNMI and Guam</span>
+          </li>
+        </ul>
+
+        <div class="join-benefits-badge">
+          <strong>$0 forever.</strong> No membership fees. No hidden costs.
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="join-form-wrap">
+        <form id="joinForm" class="join-form" action="https://formspree.io/f/marianasbusinessnetwork@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New MBN Membership Application">
+          <input type="hidden" name="_next" value="#">
+
+          <div class="join-field">
+            <label for="join-name">Full Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="join-name" name="name" required autocomplete="name" placeholder="Your full name">
+          </div>
+
+          <div class="join-field">
+            <label for="join-email">Email <span aria-hidden="true">*</span></label>
+            <input type="email" id="join-email" name="email" required autocomplete="email" placeholder="you@example.com">
+          </div>
+
+          <div class="join-field">
+            <label for="join-phone">Phone</label>
+            <input type="tel" id="join-phone" name="phone" autocomplete="tel" placeholder="670-000-0000">
+          </div>
+
+          <div class="join-field">
+            <label for="join-business">Business Name</label>
+            <input type="text" id="join-business" name="business_name" placeholder="Your business or side hustle">
+          </div>
+
+          <div class="join-field">
+            <label for="join-type">What best describes you? <span aria-hidden="true">*</span></label>
+            <select id="join-type" name="member_type" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="small-business">Small Business Owner</option>
+              <option value="entrepreneur">Entrepreneur / Startup</option>
+              <option value="freelancer">Freelancer / Consultant</option>
+              <option value="side-hustle">Side Hustle</option>
+              <option value="nonprofit">Nonprofit / Community Org</option>
+              <option value="government">Government Employee</option>
+              <option value="student">Student</option>
+              <option value="supporter">Community Supporter</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="join-field">
+            <label for="join-island">Island / Location <span aria-hidden="true">*</span></label>
+            <select id="join-island" name="island" required>
+              <option value="" disabled selected>Select your island</option>
+              <option value="saipan">Saipan</option>
+              <option value="tinian">Tinian</option>
+              <option value="rota">Rota</option>
+              <option value="guam">Guam</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="join-field">
+            <label for="join-message">Anything you'd like us to know?</label>
+            <textarea id="join-message" name="message" rows="3" placeholder="Tell us about your business or how MBN can help you"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary join-submit" id="joinSubmitBtn">
+            <span class="join-submit-text">Join MBN — It's Free</span>
+            <span class="join-submit-loading" hidden>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="join-spinner"><circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/></svg>
+              Submitting...
+            </span>
+          </button>
+        </form>
+
+        <!-- Success message -->
+        <div class="join-success" id="joinSuccess" hidden>
+          <div class="join-success-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 10 10.5 15.5 8 13"/></svg>
+          </div>
+          <h3 class="join-success-title">Welcome to MBN</h3>
+          <p class="join-success-desc">You're officially part of the Marianas Business Network. We'll be in touch with upcoming events and opportunities. Together, we move this economy forward.</p>
+          <button class="btn btn-gold-outline" onclick="closeJoinModal()" style="margin-top: var(--space-4); border-color: var(--color-gold); color: var(--color-gold);">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </main>
 
 <!-- ======================================================
@@ -799,6 +930,108 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   });
 });
+
+// JOIN MODAL
+function openJoinModal() {
+  const modal = document.getElementById('joinModal');
+  modal.hidden = false;
+  document.body.style.overflow = 'hidden';
+  // Focus first input after animation
+  setTimeout(() => {
+    const firstInput = modal.querySelector('input[type="text"]');
+    if (firstInput) firstInput.focus();
+  }, 200);
+}
+
+function closeJoinModal() {
+  const modal = document.getElementById('joinModal');
+  modal.hidden = true;
+  document.body.style.overflow = '';
+  // Reset form and success state
+  document.getElementById('joinForm').reset();
+  document.getElementById('joinForm').hidden = false;
+  document.getElementById('joinSuccess').hidden = true;
+  document.getElementById('joinSubmitBtn').disabled = false;
+  document.querySelector('.join-submit-text').hidden = false;
+  document.querySelector('.join-submit-loading').hidden = true;
+}
+
+// Close modal on overlay click
+document.getElementById('joinModal').addEventListener('click', function(e) {
+  if (e.target === this) closeJoinModal();
+});
+
+// Close on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && !document.getElementById('joinModal').hidden) {
+    closeJoinModal();
+  }
+});
+
+// Form submission
+document.getElementById('joinForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const btn = document.getElementById('joinSubmitBtn');
+  const textSpan = btn.querySelector('.join-submit-text');
+  const loadingSpan = btn.querySelector('.join-submit-loading');
+  btn.disabled = true;
+  textSpan.hidden = true;
+  loadingSpan.hidden = false;
+
+  // Collect form data
+  const formData = new FormData(this);
+
+  // Send via fetch to email endpoint
+  // Using mailto: fallback approach — builds a mailto link with form data
+  const name = formData.get('name');
+  const email = formData.get('email');
+  const phone = formData.get('phone') || 'Not provided';
+  const business = formData.get('business_name') || 'Not provided';
+  const memberType = formData.get('member_type');
+  const island = formData.get('island');
+  const message = formData.get('message') || 'None';
+
+  const subject = encodeURIComponent('New MBN Membership Application: ' + name);
+  const body = encodeURIComponent(
+    'NEW MBN MEMBER APPLICATION\n' +
+    '========================\n\n' +
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n' +
+    'Phone: ' + phone + '\n' +
+    'Business: ' + business + '\n' +
+    'Type: ' + memberType + '\n' +
+    'Island: ' + island + '\n' +
+    'Message: ' + message + '\n\n' +
+    '---\nSubmitted from marianasnetwork.com'
+  );
+
+  // Try Formspree first, fallback to mailto
+  fetch('https://formspree.io/f/xpzvnwpk', {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if (response.ok) {
+      showJoinSuccess();
+    } else {
+      // Fallback: open mailto
+      window.open('mailto:marianasbusinessnetwork@gmail.com?subject=' + subject + '&body=' + body, '_self');
+      showJoinSuccess();
+    }
+  })
+  .catch(() => {
+    // Fallback: open mailto
+    window.open('mailto:marianasbusinessnetwork@gmail.com?subject=' + subject + '&body=' + body, '_self');
+    showJoinSuccess();
+  });
+});
+
+function showJoinSuccess() {
+  document.getElementById('joinForm').hidden = true;
+  document.getElementById('joinSuccess').hidden = false;
+}
 </script>
 
 </body>
