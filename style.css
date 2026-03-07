@@ -1867,6 +1867,35 @@ a, button, [role="button"], [role="link"], input, textarea, select {
   margin-top: 2px;
 }
 
+.join-coming-soon {
+  background: oklch(from var(--color-teal) l c h / 0.12);
+  border: 1px solid oklch(from var(--color-teal) l c h / 0.25);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.join-coming-soon-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-2);
+}
+
+.join-coming-soon-text {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text-inverse);
+  line-height: 1.35;
+}
+
 .join-benefits-badge {
   font-size: var(--text-sm);
   color: var(--color-gold);
