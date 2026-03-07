@@ -320,9 +320,9 @@ a, button, [role="button"], [role="link"], input, textarea, select {
 .nav-logo-text {
   font-family: var(--font-display);
   font-size: var(--text-lg);
-  font-weight: 600;
-  color: var(--color-text-inverse);
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  color: var(--color-gold);
+  letter-spacing: 0.06em;
   line-height: 1.2;
 }
 
