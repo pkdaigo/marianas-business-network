@@ -1468,6 +1468,34 @@ a, button, [role="button"], [role="link"], input, textarea, select {
 }
 
 /* ============================================================
+   SHOWCASE SECTION
+   ============================================================ */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .showcase-grid { grid-template-columns: 1fr; }
+}
+
+.showcase-recap-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  background: oklch(from var(--color-gold) l c h / 0.12);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-6);
+}
+
+/* ============================================================
    SCROLL ANIMATIONS (CSS-only, no layout shift)
    ============================================================ */
 .fade-in {
