@@ -297,7 +297,12 @@ a, button, [role="button"], [role="link"], input, textarea, select {
 }
 
 .site-header.at-top {
-  background: transparent;
+  background: linear-gradient(
+    to bottom,
+    oklch(0.08 0.04 250 / 0.7) 0%,
+    oklch(0.08 0.04 250 / 0.35) 60%,
+    transparent 100%
+  );
 }
 
 .nav-inner {
@@ -476,7 +481,8 @@ a, button, [role="button"], [role="link"], input, textarea, select {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    oklch(0.12 0.04 250 / 0.3) 0%,
+    oklch(0.08 0.04 250 / 0.55) 0%,
+    oklch(0.08 0.04 250 / 0.4) 15%,
     oklch(0.08 0.04 250 / 0.65) 40%,
     oklch(0.06 0.04 250 / 0.92) 100%
   );
