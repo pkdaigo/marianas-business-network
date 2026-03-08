@@ -633,6 +633,11 @@ a, button, [role="button"], [role="link"], input, textarea, select {
   border-color: var(--color-gold-hover);
   color: var(--color-navy);
 }
+.btn-primary:active {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: var(--color-navy);
+}
 
 .btn-outline {
   background: transparent;
@@ -644,6 +649,11 @@ a, button, [role="button"], [role="link"], input, textarea, select {
   border-color: #FFFFFF;
   color: #FFFFFF;
 }
+.btn-outline:active {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: var(--color-navy);
+}
 
 .btn-navy {
   background: var(--color-navy);
@@ -654,6 +664,11 @@ a, button, [role="button"], [role="link"], input, textarea, select {
   background: var(--color-navy-light);
   border-color: var(--color-navy-light);
 }
+.btn-navy:active {
+  background: #FFFFFF;
+  border-color: var(--color-navy);
+  color: var(--color-navy);
+}
 
 .btn-gold-outline {
   background: transparent;
@@ -663,6 +678,11 @@ a, button, [role="button"], [role="link"], input, textarea, select {
 .btn-gold-outline:hover {
   background: var(--color-gold);
   color: var(--color-navy);
+}
+.btn-gold-outline:active {
+  background: var(--color-navy);
+  border-color: var(--color-gold);
+  color: #FFFFFF;
 }
 
 /* ============================================================
@@ -972,6 +992,21 @@ a, button, [role="button"], [role="link"], input, textarea, select {
 /* ============================================================
    EVENTS SECTION
    ============================================================ */
+.events-year-group {
+  margin-bottom: var(--space-10);
+}
+
+.events-year-label {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-gold);
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-gold-highlight);
+}
+
 .events-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
@@ -1010,6 +1045,12 @@ a, button, [role="button"], [role="link"], input, textarea, select {
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.25;
+}
+
+.event-card--tba {
+  border-style: dashed;
+  border-color: var(--color-gold-highlight);
+  opacity: 0.85;
 }
 
 .event-desc {
@@ -1101,6 +1142,35 @@ a, button, [role="button"], [role="link"], input, textarea, select {
     padding: var(--space-8);
   }
   .upcoming-actions { flex-direction: row; flex-wrap: wrap; }
+}
+
+/* ============================================================
+   SIP HAPPENS SECTION
+   ============================================================ */
+.sip-happens-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  margin-top: var(--space-8);
+}
+
+.sip-happens-video {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: #000;
+}
+
+.sip-happens-video video {
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 768px) {
+  .sip-happens-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
 }
 
 /* ============================================================
@@ -2079,6 +2149,11 @@ a, button, [role="button"], [role="link"], input, textarea, select {
 .nav-join-btn:hover {
   background: var(--color-gold-hover);
   transform: translateY(-1px);
+}
+.nav-join-btn:active {
+  background: #FFFFFF;
+  color: var(--color-navy);
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
